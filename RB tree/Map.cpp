@@ -150,8 +150,8 @@ void Map<T1, T2>::remove(T1 key) {
 
 	keys.remove(temp->key);
 	auto iter = values.end();
-	iter--;
-	if (*iter == temp->data) values.pop_back();
+	if (values.size())iter--;
+	if (iter != values.end() && *iter == temp->data) values.pop_back();
 	else {
 		for (auto iter = values.begin(); iter != values.end(); iter++)
 		{
